@@ -1,0 +1,146 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Busca Visual de Produtos de Vestuário</title>
+        <link href="resources/css/estilo.css" rel="stylesheet" type="text/css"/>
+    </h:head>
+    <h:body>
+
+        <p:layout fullPage="true">
+
+            <p:layoutUnit id="cabec" position="north" size="100" resizable="true" closable="true" collapsible="true">
+               
+                <p>Busca Visual de Produtos de Vestuário</p>
+            </p:layoutUnit>
+
+            <!--<p:layoutUnit position="west" size="175" header="Esquerda" collapsible="true">-->
+            <p:layoutUnit position="west" size="175" collapsible="true">
+                <p:menu>
+                    <p:submenu label="Métodos">
+                        <p:menuitem value="FCTH" url="#lista-fcth" />
+                        <p:menuitem value="CEDD" url="#lista-cedd" />
+                        <p:menuitem value="COMPARAR" url="#container-data" />                           
+
+                    </p:submenu>
+
+                </p:menu>
+            </p:layoutUnit>
+
+            <p:layoutUnit position="center">
+                <h:form id="form">
+                    <div class="up">                        
+                    <p:fileUpload id="image" fileUploadListener="#{imagemMB.upload}" update="listaF,listaC,imgCons" auto="true" mode="advanced" dragDropSupport="true" sizeLimit="5000000" allowTypes="/(\.|\/)(gif|jpe?g|png)$/" label="Carregar Imagem" />
+                    <p:growl id="messages" showDetail="true"/> 
+                    <!--<p:ajax oncomplete="" update="lista"/>-->
+                    <div class="img-consulta">
+                    <p:graphicImage url="#{imagemMB.imageFilePathRel}"  id="imgCons" /> 
+                    </div>
+                    </div>
+
+                    <div id="container-data">                
+
+                        <div class="lista-data" id="lista-fcth">
+                            <p:dataList id="listaF" value="#{imagemMB.resultadosFCTH}" var="resultadoFCTH" type="definition">
+                                <f:facet name="header">
+                                    FCTH
+                                </f:facet>
+                                
+                                <div class="container-produto">
+                                    <figure>
+                                        <p:graphicImage url="#{resultadoFCTH.produto.imagemPath}" /> 
+                                    </figure>
+                                    
+                          
+                                <div class="container-info">
+                                    <div class="pos linha-info">
+                                        <div>Posição</div>
+                                        <div>#{resultadoFCTH.posicao}</div>
+                                    </div>
+                                    <div class="info linha-info">
+                                        <div>Loja</div>
+                                        <div>#{resultadoFCTH.produto.loja}</div>
+                                    </div>
+                                    <div class="info linha-info">
+                                        
+                                        <div>Produto</div>
+                                        <div>#{resultadoFCTH.produto.nome}</div>
+                                    </div>
+                                    <div class="info linha-info">
+                                        
+                                        <div>Preço</div>
+                                        <div>#{resultadoFCTH.produto.preco}</div>
+                                    </div>
+                                    <div class="info linha-info">
+                                        
+                                        <div>Score</div>
+                                        <div>#{resultadoFCTH.score}</div>
+                                    </div>
+                                </div>
+                                      </div>
+
+                                
+                                <f:facet name="description">
+                                    <!--<p:graphicImage url="{fileFCTH.imagem.path}" />--> 
+                                </f:facet>
+                            </p:dataList>
+                        </div>
+                        
+                        <div class="lista-data" id="lista-cedd">
+                            <p:dataList id="listaC" value="#{imagemMB.resultadosCEDD}" var="resultadoCEDD" type="definition">
+                                <f:facet name="header">
+                                    CEDD
+                                </f:facet>
+                                <div class="container-produto">
+                                    <figure>
+                                        <p:graphicImage url="#{resultadoCEDD.produto.imagemPath}" /> 
+                                    </figure>
+                                    
+                          
+                                <div class="container-info">
+                                    <div class="pos linha-info">
+                                        <div>Posição</div>
+                                        <div>#{resultadoCEDD.posicao}</div>
+                                    </div>
+                                    <div class="info linha-info">
+                                        <div>Loja</div>
+                                        <div>#{resultadoCEDD.produto.loja}</div>
+                                    </div>
+                                    <div class="info linha-info">
+                                        
+                                        <div>Produto</div>
+                                        <div>#{resultadoCEDD.produto.nome}</div>
+                                    </div>
+                                    <div class="info linha-info">
+                                        
+                                        <div>Preço</div>
+                                        <div>#{resultadoCEDD.produto.preco}</div>
+                                    </div>
+                                    <div class="info linha-info">
+                                        
+                                        <div>Score</div>
+                                        <div>#{resultadoCEDD.score}</div>
+                                    </div>
+                                </div>
+                                      </div>
+                                <f:facet name="description">
+                                    <!--<p:graphicImage url="{fileCEDD.imagem.path}" />--> 
+                                    <!--{fileCEDD.loja}-->
+                                </f:facet>
+                            </p:dataList>
+                        </div>
+                    </div>
+                    <!--<p:messages severity="info" escape="false" showDetail="true" autoUpdate="true" closable="true" />-->
+                    
+                </h:form>
+                 
+            </p:layoutUnit>
+
+        </p:layout>
+
+    </h:body>
+</html>
+

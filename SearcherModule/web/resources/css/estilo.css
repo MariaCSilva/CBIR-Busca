@@ -1,0 +1,125 @@
+/* 
+    Created on : 05/11/2018, 19:38:15
+    Author     : Maria
+*/
+img{
+    width:150px;
+    height:150px;
+}
+.up{
+    position: sticky;
+    background-color: #dedede57;
+    top: 0;
+}
+#container-data{
+    display: flex;
+}
+.lista-data{
+    flex-grow: 1;
+}
+#lista-cedd{
+    display: none;
+}
+#lista-fcth{
+    display: none;
+}
+#lista-cedd:target{
+    display: block;
+}
+#lista-fcth:target{
+    display: block;
+}
+#container-data:target div{
+    display: block;
+}
+
+#container-data:target .container-produto .container-info .info,#container-data:target .container-info .pos div:first-child{
+    display: none;
+}
+#container-data:target .container-produto{
+    display: flex;
+    width: 48%;
+    
+}
+#container-data:target .container-produto .container-info .pos{
+    display: block;
+    border:none;
+    /*background-color: blue;*/
+     display: flex;
+    justify-content: flex-end;
+}
+
+#container-data:target .container-produto .container-info .pos div:last-child{
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px silver;
+    display: flex;
+    justify-content: flex-end;
+    /*    position: relative;
+    top: -200px;
+    left: 100px;*/
+    
+
+}
+
+.img-consulta{
+    width: 150px;
+    height: 150px;
+    border:1px solid silver;
+    /*background-color: blue;*/ 
+    /*margin:5px auto;*/
+}
+#cabec{
+     background-image: url(../img/fundo1.jpg);
+    /*background-repeat: no-repeat;*/
+    background-size: cover;
+    background-position: center;
+   
+}
+#cabec div{
+    background-color: #291b1b59;
+    
+}
+#cabec p{
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    color:#291b1bdf;
+    text-transform: uppercase;    
+    /*text-shadow:3px 3px 10px black;*/
+}
+.container-produto{
+    display: flex;
+    width: 50%;
+    margin:20px auto;
+   border: 1px solid silver;
+}
+.container-produto figure{
+    width: 20%;
+}
+
+.container-info{
+    width: 80%;
+    font-size:1em;     
+}
+
+.linha-info{
+    display: flex;
+   
+}
+.linha-info div{
+    padding: 10px;
+    border: 1px solid silver;
+}
+.linha-info div:first-child{
+    width: 25%;    
+}
+
+.linha-info div:last-child{
+    width: 70%;    
+}
+dd{
+    text-align: center;
+}
